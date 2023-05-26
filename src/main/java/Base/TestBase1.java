@@ -3,7 +3,6 @@ package Base;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -11,12 +10,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
-import org.openqa.selenium.safari.SafariDriver;
 
 public class TestBase1 {
 	public static WebDriver driver;
@@ -30,45 +23,45 @@ public class TestBase1 {
 	}
 	public void initalization() throws IOException
 	{
-//		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-//		driver = new ChromeDriver();
-//		driver.manage().window().maximize();
-//		driver.get("https://www.facebook.com/");
-		
-		String browserName = readPropertyFile("browser");  //edge
-		if(browserName.equalsIgnoreCase("chrome"))
-		{
-		ChromeOptions o = new ChromeOptions();
-		o.addArguments("--disable-notifications");
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		driver = new ChromeDriver(o);
-		}
-		
-		else if(browserName.equalsIgnoreCase("firefox"))
-		{
-			System.setProperty("webdriver.gecko.driver", "geckodriver");
-			driver = new FirefoxDriver();
-		}
-		else if(browserName.equalsIgnoreCase("opera")) 
-		{
-			OperaOptions o = new OperaOptions();
-			o.addArguments("--disable-notifications");
-			System.setProperty("webdriver.opera.driver", "operadriver");
-			driver = new OperaDriver(o);
-		}
-		else if(browserName.equalsIgnoreCase("edge"))
-		{
-			System.setProperty("webdriver.edge.driver", "msedgedriver");
-			driver = new EdgeDriver();
-		}
-		else
-		{
-			driver = new SafariDriver();
-		}
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sopan Gayake.DTPLLPT70\\workspace\\TataPlay\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(readPropertyFile("url"));
+		
+//		String browserName = readPropertyFile("browser");  //edge
+//		if(browserName.equalsIgnoreCase("chrome"))
+//		{
+//		ChromeOptions o = new ChromeOptions();
+//		o.addArguments("--disable-notifications");
+//		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+//		driver = new ChromeDriver(o);
+//		}
+//		
+//		else if(browserName.equalsIgnoreCase("firefox"))
+//		{
+//			System.setProperty("webdriver.gecko.driver", "geckodriver");
+//			driver = new FirefoxDriver();
+//		}
+//		else if(browserName.equalsIgnoreCase("opera")) 
+//		{
+//			OperaOptions o = new OperaOptions();
+//			o.addArguments("--disable-notifications");
+//			System.setProperty("webdriver.opera.driver", "operadriver");
+//			driver = new OperaDriver(o);
+//		}
+//		else if(browserName.equalsIgnoreCase("edge"))
+//		{
+//			System.setProperty("webdriver.edge.driver", "msedgedriver");
+//			driver = new EdgeDriver();
+//		}
+//		else
+//		{
+//			driver = new SafariDriver();
+//		}
+//		driver.manage().window().maximize();
+//		driver.manage().deleteAllCookies();
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		driver.get(readPropertyFile("url"));
 	}
 	
 	public static void readExcelFile() throws IOException

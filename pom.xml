@@ -1,23 +1,54 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>TataPlay</groupId>
   <artifactId>TataPlay</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>TataPlay</name>
   <description>Tata play project</description>
+  <properties>
+        <maven.compiler.source>1.11</maven.compiler.source>
+        <maven.compiler.target>1.11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>7.4.0</testng.version>
+   </properties>
+  
+ 	<build>
+		 <plugins>
+			 <plugin>
+   		   <groupId>org.apache.maven.plugins</groupId>
+   		   <artifactId>maven-compiler-plugin</artifactId>
+   		   <version>3.8.1</version> <!-- Replace with the desired version -->
+    	  <configuration>
+    	    <source>1.8</source> <!-- Specify the Java version you are using -->
+    	    <target>1.8</target> <!-- Specify the target Java version -->
+   		   </configuration>
+ 		   </plugin>
+		   <plugin>
+     	   <groupId>org.apache.maven.plugins</groupId>
+   		   <artifactId>maven-surefire-plugin</artifactId>
+   		   <version>3.0.0-M5</version> <!-- Replace with the desired version -->
+   		   <configuration>
+   	   	  <suiteXmlFiles>
+          <suiteXmlFile>testng.xml</suiteXmlFile> <!-- Replace with your TestNG XML file path -->
+   	      </suiteXmlFiles>
+  		   </configuration>
+   		 </plugin>
+		 </plugins>
+	 </build>
+	 
    <dependencies>
-  <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.0.0</version>
-</dependency>
-
-  <dependency>
+ 	<dependency>
+ 	  	 <groupId>org.seleniumhq.selenium</groupId>
+   		 <artifactId>selenium-java</artifactId>
+   		 <version>4.8.3</version>
+	</dependency>
+   <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.4.0</version>
     <scope>test</scope>
-</dependency>
+   </dependency>
   
   <dependency>
     <groupId>org.apache.poi</groupId>
