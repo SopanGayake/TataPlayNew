@@ -8,6 +8,24 @@ stages
         echo "build stage"
         }
     }
+   stage('deploy')
+    {
+    steps{
+        echo "deploy stage"
+        }
+    }
+   stage('test')
+    {
+    steps{
+        echo "test stage"
+        }
+    }
+    stage('delivery')
+    {
+    steps{
+        echo "delivery stage"
+        }
+    }
 }
 }
 
